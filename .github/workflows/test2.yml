@@ -1,0 +1,8 @@
+name: test2
+on: [push]
+jobs:
+  build_test2:
+    needs: build_test1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
