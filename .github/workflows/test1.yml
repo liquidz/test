@@ -12,14 +12,14 @@ jobs:
       - run: echo ${{github.ref}}
 
   build_for_dev:
-    if: github.ref == 'dev'
+    if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - run: echo devdev
 
   build_for_master:
-    if: github.ref == 'master'
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
