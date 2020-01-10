@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: echo always
+      - run: echo ${{github.ref}}
 
   build_for_dev:
     if: github.ref == 'dev'
