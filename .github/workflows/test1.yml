@@ -1,16 +1,23 @@
 name: test1
 on:
-    push:
-      branches:
-        - master
-        - dev
+  push:
+    branches:
+      - master
+      - dev
 jobs:
+  always:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: echo always
+
   build_for_dev:
     if: github.ref == 'dev'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - run: echo devdev
+
   build_for_master:
     if: github.ref == 'master'
     runs-on: ubuntu-latest
