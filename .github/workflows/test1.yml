@@ -10,6 +10,11 @@ jobs:
       - run: ls -al ~
       - uses: actions/cache@v1.1.0
         with:
+          path: /root/.m2
+          key: m2-${{ hashFiles('deps.edn') }}
+
+      - uses: actions/cache@v1.1.0
+        with:
           path: .cpcache
           key: load-files-cpcache-${{ hashFiles('deps.edn') }}
       - uses: actions/cache@v1.1.0
