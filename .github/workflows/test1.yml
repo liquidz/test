@@ -7,4 +7,11 @@ jobs:
       image: clojure:openjdk-14-tools-deps
     steps:
       - uses: actions/checkout@v2
+      - name: Cache cpcache
+        uses: actions/cache@v1.1.0
+        with:
+          path: .cpcache
+          key: load-files-cpcache-${{ hashFiles('deps.edn') }}
+
       - run: clojure -m foo.core
+      - run: ls -al
