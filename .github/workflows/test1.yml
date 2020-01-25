@@ -8,12 +8,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ls -al ~
-      - name: Cache cpcache
-        uses: actions/cache@v1.1.0
+      - uses: actions/cache@v1.1.0
         with:
           path: .cpcache
           key: load-files-cpcache-${{ hashFiles('deps.edn') }}
+      - uses: actions/cache@v1.1.0
+        with:
+          path: ~/.clojure/.cpcache
+          key: fixme1-${{ hashFiles('deps.edn') }}
 
       - run: clojure -m foo.core
       - run: ls -al
-      - run: ls -al ~
+      - run: cat .cpcache/*
+      - run: ls -al ~/.clojure
