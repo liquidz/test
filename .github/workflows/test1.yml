@@ -7,6 +7,7 @@ jobs:
       image: clojure:openjdk-14-tools-deps
     steps:
       - uses: actions/checkout@v2
+      - run: ls -al ~
       - name: Cache cpcache
         uses: actions/cache@v1.1.0
         with:
@@ -15,3 +16,4 @@ jobs:
 
       - run: clojure -m foo.core
       - run: ls -al
+      - run: ls -al ~
