@@ -8,5 +8,11 @@ jobs:
       - run: echo $PATH
       - run: |
           ./installer/cljstyle.sh
-          mv cljstyle /usr/local/bin
-      - run: which cljstyle
+          mkdir bin
+          mv cljstyle bin
+      - name: foo
+        env:
+          PATH: $PATH:./bin
+        run: |
+          echo $PATH
+          which cljstyle
