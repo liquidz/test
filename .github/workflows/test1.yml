@@ -12,7 +12,7 @@ jobs:
           mv cljstyle bin
       - name: foo
         env:
-          PATH: $PATH:./bin
+          PATH: ${{ env.PATH }}:./bin
         run: |
           echo $PATH
-          which cljstyle
+          cljstyle --help
