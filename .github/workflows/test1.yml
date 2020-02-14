@@ -11,8 +11,9 @@ jobs:
           mkdir bin
           mv cljstyle bin
       - name: foo
-        env:
-          PATH: ${{ env.PATH }}:./bin
+        # env:
+        #   PATH: ${{ env.PATH }}:./bin
         run: |
+          echo "::add-path::./bin"
           echo $PATH
           cljstyle --help
