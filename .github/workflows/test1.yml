@@ -7,6 +7,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo $PATH
       - run: |
-          ./installer/cljstyle
+          ./installer/cljstyle.sh
           mv cljstyle /usr/local/bin
       - run: which cljstyle
