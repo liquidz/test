@@ -5,12 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo $PATH
       - run: |
-          ./installer/cljstyle.sh
+          echo $PATH
           mkdir bin
-          mv cljstyle bin
       - run: echo "::add-path::./bin"
+      - name: install cljstyle
+        run: ../installer/cljstyle.sh
+        working-directory: ./bin
       - name: foo
         # env:
         #   PATH: ${{ env.PATH }}:./bin
