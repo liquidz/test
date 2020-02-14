@@ -3,16 +3,6 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: clojure:openjdk-14-tools-deps
     steps:
       - uses: actions/checkout@v2
-      - run: ls -al ~
-      - uses: actions/cache@v1.1.0
-        with:
-          path: /root/.m2
-          key: m2-${{ hashFiles('deps.edn') }}
-
-      - run: clojure -m foo.core
-      - run: ls -al
-      - run: cat .cpcache/*
+      - run: echo $PATH
