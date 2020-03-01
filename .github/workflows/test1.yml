@@ -9,4 +9,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Lint by clj-kondo
         #run: clj-kondo --lint clj:test/clj
-        run: ls -ltr
+        run: docker run --rm -v $(pwd):/tmp/work -w /tmp/work borkdude/clj-kondo clj-kondo --lint src
+

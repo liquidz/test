@@ -1,5 +1,5 @@
 (ns foo.core
   (:require [medley.core :as medley]))
 
-(defn -main []
+(defn -main [x]
   (println (medley/map-keys name {:hello "world"})))
