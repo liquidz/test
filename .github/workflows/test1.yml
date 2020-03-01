@@ -3,9 +3,10 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: borkdude/clj-kondo
+    # container:
+    #   image: borkdude/clj-kondo
     steps:
       - uses: actions/checkout@v2
       - name: Lint by clj-kondo
-        run: clj-kondo --lint clj:test/clj
+        #run: clj-kondo --lint clj:test/clj
+        run: ls -ltr
