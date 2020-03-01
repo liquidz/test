@@ -3,18 +3,9 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: borkdude/clj-kondo
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          echo $PATH
-          mkdir bin
-      - run: echo "::add-path::./bin"
-      - name: install cljstyle
-        run: ../installer/cljstyle.sh
-        working-directory: ./bin
-      - name: foo
-        # env:
-        #   PATH: ${{ env.PATH }}:./bin
-        run: |
-          echo $PATH
-          cljstyle --help
+      - name: Lint by clj-kondo
+        run: clj-kondo --lint clj:test/clj
