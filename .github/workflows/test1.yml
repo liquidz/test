@@ -9,5 +9,5 @@ jobs:
       - name: Foooo
         uses: ./
         with:
-          classpath: ['foo', 'bar']
-          namespaces: ['hoge', 'fuga']
+          classpath: 'foo bar'
+          namespaces: 'hoge fuga'
