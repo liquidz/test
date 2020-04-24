@@ -1,14 +1,21 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  classpath:
-    description: 'classpath'
+  source-paths:
+    description: 'source paths'
     required: true
-    default: 'src:test'
-  namespaces:
-    description: 'namespaces'
+    default: 'src'
+
+  test-paths:
+    description: 'test paths'
     required: true
-    default: ''
+    default: 'test'
+
+  test-file-pattern:
+    description: 'test paths'
+    required: true
+    default: '_test.clj$'
+
 outputs:
   time:
     description: 'The time we greeted you'
@@ -16,5 +23,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.classpath }}
-    - ${{ inputs.namespaces }}
+    - ${{ inputs.source-paths }}
+    - ${{ inputs.test-patsh }}
+    - ${{ inputs.test-file-pattern }}
