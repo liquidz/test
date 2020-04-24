@@ -1,8 +1,10 @@
-(ns foo.core
-  (:require [medley.core :as medley]))
+(ns foo.core)
 
 (defn- foo [arg]
   (+ 1 2 3))
 
+(defn bar [x]
+  (inc x))
+
 (defn -main []
-  (println (medley/map-keys name {:hello "world"})))
+  (println "ooo"))

@@ -1,3 +1,3 @@
 FROM borkdude/babashka
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY entrypoint.clj /entrypoint.clj
+ENTRYPOINT ["/entrypoint.clj"]
