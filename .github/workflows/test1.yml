@@ -6,8 +6,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo hello
-      - name: Babashka test
-        uses: ./
+      # - name: my action test
+      #   uses: ./
+      #   with:
+      #     classpath: 'src test'
+      #     namespaces: 'foo.core-test'
+      #
+  gh-page-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: gh-pages deploy
+        uses: peaceiris/actions-gh-pages@v3.6.1
         with:
-          classpath: 'src test'
-          namespaces: 'foo.core-test'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./public
