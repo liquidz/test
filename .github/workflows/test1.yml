@@ -8,7 +8,16 @@ jobs:
       - uses: DeLaGuardo/setup-clojure@2.0
         with:
           tools-deps: '1.10.1.536'
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.m2
+          key: m2-${{ hashFiles('deps.edn') }}-v1
       - run: clojure -m foo.core
+      - run: whoami
+      - run: ls -al ~
+      - run: ls -al ~/.m2
+      - run: cd ~ && pwd
 
   # gh-page-test:
   #   runs-on: ubuntu-latest
