@@ -16,7 +16,7 @@ jobs:
       - run: clojure -m foo.core
       - run: whoami
       - run: ls -al ~
-      - run: ls -al ~/.m2
+      - run: ls -al ~/.m2/repository
       - run: cd ~ && pwd
 
   # gh-page-test:
