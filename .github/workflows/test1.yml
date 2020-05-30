@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: lein run
       - run: whoami
-      - run: ls -al ~
-      - run: ls -al ~/.m2/repository
+      - run: ls -al /root
+      - run: ls -al /root/.m2/repository
       - run: cd ~ && pwd
 
   # gh-page-test:
