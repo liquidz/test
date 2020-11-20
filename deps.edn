@@ -1,8 +1,7 @@
-{
- :paths ["src"]
+{:paths ["src"]
  :deps
- {
-  org.clojure/clojure {:mvn/version "1.10.1"}
-  medley {:mvn/version "1.2.0"}
-  }
-}
+ {org.clojure/clojure {:mvn/version "1.10.1"}
+  medley/medley {:mvn/version "1.2.0"}}
+
+ :aliases
+ {:run {:main-opts ["-m" "foo.core"]}}}

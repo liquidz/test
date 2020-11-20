@@ -5,9 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-         TAG_NAME=$(echo "refs/tags/1.2.3" | sed 's!refs/tags/!!')
-         echo "tag_name: ${TAG_NAME}"
+      - name: Install clojure
+        run: |
+          curl -O https://download.clojure.org/install/linux-install-1.10.1.727.sh
+          chmod +x linux-install-1.10.1.727.sh
+          sudo ./linux-install-1.10.1.727.sh
+      - uses: actions/cache@v2
+        with:
+          path: /root/.m2
+          key: test-m2-${{ hashFiles('deps.edn') }}-v1
+      - run: clojure -M:run
 
   # build:
   #   runs-on: ubuntu-latest
