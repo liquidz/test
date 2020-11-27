@@ -12,23 +12,21 @@ jobs:
   build:
     strategy:
       matrix:
-        java: ['8', '11', '15']
+        java: [8, 15]
 
     runs-on: ubuntu-latest
-    # container:
-    #   image: clojure:openjdk-15-tools-deps-1.10.1.739
     steps:
       - uses: actions/checkout@v2
       - run: java -version
       - uses: actions/setup-java@v1
         with:
-          java-version: ${{ matrix.java }}
+          java-version: '${{ matrix.java }}'
       - run: java -version
       - uses: DeLaGuardo/setup-clojure@e73bf2b
         with:
           tools-deps: '1.10.1.727'
-      - run: which clojure
-      - run: which make
+      - run: whoami
+      - run: echo $HOME
       - run: clojure -M:run
 
   # gh-page-test:
