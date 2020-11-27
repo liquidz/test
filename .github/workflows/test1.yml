@@ -19,7 +19,9 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '15'
-      - run: java -version
+      - uses: DeLaGuardo/setup-clojure@e73bf2b
+        with:
+          tools-deps: '1.10.1.727'
       - run: which clojure
       - run: which make
       - run: clojure -M:run
