@@ -20,6 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo '::error file=deps.edn::foo\nbar\tbaz'
+      - run: echo '::group::hello'
+      - run: echo 'plain text1'
+      - run: echo '::error file=deps.edn::in group??'
+      - run: echo '::error file=deps.edn::in group!!??'
+      - run: echo 'plain text2'
+      - run: echo '::endgroup::'
       # - run: java -version
       # # - uses: actions/setup-java@v1
       # #   with:
