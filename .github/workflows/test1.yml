@@ -21,7 +21,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Cache dependencies
+      - name: Maven cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: maven-${{ hashFiles('shadow-cljs.edn') }}
+          restore-keys: maven-
+      - name: NPM cache
         uses: actions/cache@v2
         with:
           path: ~/.npm
