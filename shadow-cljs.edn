@@ -1,0 +1,4 @@
+{:source-paths ["test-cljs"]
+ :builds {:ci {:target :karma
+               :output-to "target/ci.js"}}}
+

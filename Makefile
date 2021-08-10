@@ -6,3 +6,7 @@ release:
 
 build:
 	docker build -t uochan/bb-test .
+
+shadow-test:
+	npx shadow-cljs compile ci
+	./node_modules/karma/bin/karma start --single-run
