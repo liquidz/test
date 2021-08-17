@@ -31,7 +31,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: coverage
-          path: target/coverage/coverage.txt
+          path: target/coverage/
       - run: echo "forms => ${{ steps.coverage.outputs.forms }}, lines => ${{ steps.coverage.outputs.lines }}"
 
       # - name: Use Node.js

@@ -4,7 +4,4 @@
  :plugins [:kaocha.plugin/cloverage]
  :cloverage/opts {;; :src-ns-path ["src/antq"]
                   ;; :test-ns-path ["test"]
-                  ;; :summary? false
-                  :html? false
-                  :text? true
                   :custom-report foo.cloverage/reporter-fn}}
