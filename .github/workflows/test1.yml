@@ -28,6 +28,10 @@ jobs:
           restore-keys: maven-
       - id: coverage
         run: clojure -M:test
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: target/coverage/coverage.txt
       - run: echo "forms => ${{ steps.coverage.outputs.forms }}, lines => ${{ steps.coverage.outputs.lines }}"
 
       # - name: Use Node.js
