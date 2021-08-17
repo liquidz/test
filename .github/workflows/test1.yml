@@ -20,6 +20,12 @@ jobs:
       - uses: DeLaGuardo/setup-clojure@master
         with:
           tools-deps: latest
+      - name: Maven cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: maven-${{ hashFiles('deps.edn') }}
+          restore-keys: maven-
       - run: clojure -M:test
       # - name: Use Node.js
       #   uses: actions/setup-node@v2
