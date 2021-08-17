@@ -26,7 +26,10 @@ jobs:
           path: ~/.m2
           key: maven-${{ hashFiles('deps.edn') }}
           restore-keys: maven-
-      - run: clojure -M:test
+      - id: coverage
+        run: clojure -M:test
+      - run: echo "forms => ${{ steps.coverage.outputs.forms }}, lines => ${{ steps.coverage.outputs.lines }}"
+
       # - name: Use Node.js
       #   uses: actions/setup-node@v2
       #   with:

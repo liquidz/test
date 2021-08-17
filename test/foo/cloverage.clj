@@ -1,5 +1,6 @@
 (ns foo.cloverage
-  (:require [cloverage.report :as report]))
+  (:require
+    [cloverage.report :as report]))
 
 (defn reporter-fn
   [{:keys [forms]}]
