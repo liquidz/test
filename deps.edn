@@ -4,4 +4,8 @@
   medley/medley {:mvn/version "1.2.0"}}
 
  :aliases
- {:run {:main-opts ["-m" "foo.core"]}}}
+ {:run {:main-opts ["-m" "foo.core"]}
+  :test {:extra-deps {lambdaisland/kaocha {:mvn/version "1.0.861"}
+                      lambdaisland/kaocha-cloverage {:mvn/version "1.0.75"}}
+         :main-opts ["-m" "kaocha.runner"]}}}
+
