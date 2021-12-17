@@ -20,19 +20,10 @@ jobs:
       - uses: DeLaGuardo/setup-clojure@master
         with:
           tools-deps: latest
-      - name: Maven cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2
-          key: maven-${{ hashFiles('deps.edn') }}
-          restore-keys: maven-
-      - id: coverage
-        run: clojure -M:test
-      - uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: target/coverage/
-      - run: echo "forms => ${{ steps.coverage.outputs.forms }}, lines => ${{ steps.coverage.outputs.lines }}"
+
+      - name: Show versions
+        run: |
+          clojure --version
 
       # - name: Use Node.js
       #   uses: actions/setup-node@v2
