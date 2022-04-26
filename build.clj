@@ -8,6 +8,9 @@
 (def ^:private lib 'com.github.liquidz/test)
 (def ^:private class-dir "target/classes")
 (def ^:private jar-file "target/liquidz-test.jar")
+(def ^:private scm {:connection "scm:git:git://github.com/liquidz/test.git"
+                    :developerConnection "scm:git:ssh://git@github.com/liquidz/test.git"
+                    :url "https://github.com/liquidz/test"})
 
 (defn pom
   [_]
@@ -16,7 +19,8 @@
                   :class-dir class-dir
                   :lib lib
                   :version version
-                  :src-dirs (:paths basis)})))
+                  :src-dirs (:paths basis)
+                  :scm scm})))
 
 (defn jar
   [arg]
