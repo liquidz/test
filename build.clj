@@ -10,7 +10,8 @@
 (def ^:private jar-file "target/liquidz-test.jar")
 (def ^:private scm {:connection "scm:git:git://github.com/liquidz/test.git"
                     :developerConnection "scm:git:ssh://git@github.com/liquidz/test.git"
-                    :url "https://github.com/liquidz/test"})
+                    :url "https://github.com/liquidz/test"
+                    :tag version})
 
 (defn pom
   [_]
