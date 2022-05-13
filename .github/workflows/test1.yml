@@ -33,7 +33,7 @@ jobs:
       - run: clojure -T:build print-version
         id: foo
 
-      - run: echo "${{foo.outputs.version}}"
+      - run: echo "${{steps.foo.outputs.version}}"
 
       # - name: Use Node.js
       #   uses: actions/setup-node@v2
