@@ -39,6 +39,10 @@
                   :installer :local
                   :pom-file (b/pom-path {:lib lib :class-dir class-dir})}))
 
+(defn print-version
+  [_]
+  (println (str "::set-output name=version::" version)))
+
 (defn tag
   [_]
   (sh/sh "git" "tag" version)
