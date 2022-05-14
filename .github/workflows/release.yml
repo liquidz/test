@@ -37,21 +37,19 @@ jobs:
       # - name: Create tag
       #   run: clojure -T:build tag
 
-      # - name: Deploy to clojars
-      #   run: clojure -T:build deploy
-      #   env:
-      #     CLOJARS_PASSWORD: ${{secrets.CLOJARS_PASSWORD}}
-      #     CLOJARS_USERNAME: ${{secrets.CLOJARS_USERNAME}}
-
-      - run: clojure -T:build print-version
-        id: version
+      - name: Deploy to clojars
+        id: deploy
+        run: clojure -T:build deploy
+        env:
+          CLOJARS_PASSWORD: ${{secrets.CLOJARS_PASSWORD}}
+          CLOJARS_USERNAME: ${{secrets.CLOJARS_USERNAME}}
 
       - uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.version.outputs.version }}
-          release_name: ${{ steps.version.outputs.version }}
+          tag_name: ${{ steps.deploy.outputs.version }}
+          release_name: ${{ steps.deploy.outputs.version }}
           body: |
             released
           draft: false
