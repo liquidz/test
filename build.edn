@@ -2,4 +2,7 @@
  :version "0.0.{{commit-count}}"
  :scm {:connection "scm:git:git://github.com/liquidz/test.git"
        :developerConnection "scm:git:ssh://git@github.com/liquidz/test.git"
-       :url "https://github.com/liquidz/test"}}
+       :url "https://github.com/liquidz/test"}
+ :changelog-file "CHANGELOG.adoc"
+ :changelog-title "== {{version}} ({{yyyy-mm-dd}})"
+ :github-actions? true}
