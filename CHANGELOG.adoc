@@ -2,6 +2,8 @@ All notable changes to this project will be documented in this file. This change
 
 == Unreleased (dev)
 
+== 0.0.97 (2022-05-20)
+
 // {{{
 hello
 // }}}
