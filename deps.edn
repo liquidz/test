@@ -11,9 +11,7 @@
          :main-opts ["-m" "kaocha.runner"]}
 
   :build
-  {:deps {com.github.liquidz/my-clj-build {:git/sha "128b4860878b45fe78e26ce3dfbea1b7d95aee6d"}}
-   ;; io.github.clojure/tools.build {:git/tag "v0.8.1" :git/sha "7d40500"}
-   ;; slipset/deps-deploy {:mvn/version "0.2.0"}}
-   :ns-default build}}}
+  {:deps {com.github.liquidz/build.edn {:git/sha "b3f55bd14360c434628a156ced31d3b90f39d2b7"}}
+   :ns-default build-edn.main}}}
 
 
