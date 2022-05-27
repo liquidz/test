@@ -1,8 +1,15 @@
 {:lib com.github.liquidz/test
- :version "0.0.{{commit-count}}"
+ :version "0.0.{{git/commit-count}}-SNAPSHOT"
  :scm {:connection "scm:git:git://github.com/liquidz/test.git"
        :developerConnection "scm:git:ssh://git@github.com/liquidz/test.git"
        :url "https://github.com/liquidz/test"}
- :changelog-file "CHANGELOG.adoc"
- :changelog-title "== {{version}} ({{yyyy-mm-dd}})"
+ :documents [{:file "CHANGELOG.adoc"
+              :match "Unreleased"
+              :action :append-after
+              :text "\n== {{version}} ({{now/yyyy}}-{{now/mm}}-{{now/dd}})"}]
+ :deploy-repository {;; :url "http://localhost:8081/repository/maven-snapshots/"
+                     :gpg/credential-file "/Users/iizukamasashi/.lein/credentials.clj.old2.gpg"}
+ ;; :username #env FOO_USER
+ ;; :password #env FOO_PASS
+ ;; :allow-insecure-http-repository? true}
  :github-actions? true}
