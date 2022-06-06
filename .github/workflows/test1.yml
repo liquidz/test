@@ -15,18 +15,21 @@ jobs:
     #     java: [8, 15]
 
     runs-on: ubuntu-latest
-    services:
-      local-sqs:
-        image: softwaremill/elasticmq-native
-        ports:
-          - 9324:9324
-        volumes:
-          - ${{ github.workspace }}/dev-docker:/opt
+    # services:
+    #   local-sqs:
+    #     image: softwaremill/elasticmq-native
+    #     ports:
+    #       - 9324:9324
+    #     volumes:
+    #       - ${{ github.workspace }}/dev-docker:/opt
 
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
+      - name: docker up
+        run: cd dev-docker && docker compose up -d
 
       - uses: actions/setup-java@v3
         with:
