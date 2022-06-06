@@ -1,17 +1,16 @@
 {:paths ["src"]
  :deps
  {org.clojure/clojure {:mvn/version "1.10.1"}
-  medley/medley {:mvn/version "1.2.0"}}
+  medley/medley {:mvn/version "1.2.0"}
+  toyokumo/gluttony {:mvn/version "0.3.2"}}
 
  :aliases
  {:run {:main-opts ["-m" "foo.core"]}
-  :test {:extra-paths ["test"]
-         :extra-deps {lambdaisland/kaocha {:mvn/version "1.0.861"}
-                      lambdaisland/kaocha-cloverage {:mvn/version "1.0.75"}}
-         :main-opts ["-m" "kaocha.runner"]}
+  :dev {:extra-paths ["test"]
+        :extra-deps {lambdaisland/kaocha {:mvn/version "1.0.861"}
+                     lambdaisland/kaocha-cloverage {:mvn/version "1.0.75"}}}
+  :test {:main-opts ["-m" "kaocha.runner"]}
 
   :build
   {:deps {com.github.liquidz/build.edn {:local/root "../build.edn"} #_{:git/sha "25c904055c556779c61670d7b821ca6527f6307c"}}
    :ns-default build-edn.main}}}
-
-

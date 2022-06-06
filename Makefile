@@ -10,3 +10,15 @@ shadow-test:
 .PHONY: clean
 clean:
 	rm -rf .cpcache target
+
+.PHONY: repl
+repl:
+	iced repl --force-clojure-cli -A:dev
+
+.PHONY: docker-up
+docker-up:
+	cd dev-docker && docker compose up -d
+
+.PHONY: docker-down
+docker-down:
+	cd dev-docker && docker compose down
