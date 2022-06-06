@@ -28,9 +28,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: docker up
-        run: cd dev-docker && docker compose up -d
-
       - uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
@@ -41,7 +38,9 @@ jobs:
         with:
           cli: latest
 
-      - run: clojure -M:dev:test
+      - run: |
+         (cd dev-docker && docker compose up -d)
+         clojure -M:dev:test
       # - name: Use Node.js
       #   uses: actions/setup-node@v2
       #   with:
