@@ -22,25 +22,25 @@ jobs:
     #       - 9324:9324
     #     # volumes:
     #     #   - ${{ github.workspace }}/dev-docker:/opt
-    outputs:
-      fixme: ${{ steps.fixme.outputs.version }}
+    # outputs:
+    #   fixme: ${{ steps.fixme.outputs.version }}
 
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-
-
-      - uses: DeLaGuardo/setup-clojure@master
-        with:
-          cli: latest
-      - run: clojure -T:build update-documents
-        id: fixme
+      # - uses: actions/setup-java@v3
+      #   with:
+      #     distribution: 'adopt'
+      #     java-version: '11'
+      #
+      #
+      # - uses: DeLaGuardo/setup-clojure@master
+      #   with:
+      #     cli: latest
+      # - run: clojure -T:build update-documents
+      #   id: fixme
 
 
         #(cd dev-docker && docker compose up -d)
@@ -88,12 +88,12 @@ jobs:
       # - run: clojure -M:run
 
 
-  next-job:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: echo "hello [${{ needs.build.outputs.fixme }}]"
+  # next-job:
+  #   needs: [build]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - run: echo "hello [${{ needs.build.outputs.fixme }}]"
 
 
   # gh-page-test:
