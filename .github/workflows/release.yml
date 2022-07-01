@@ -1,9 +1,9 @@
 name: Tag and Release
 
 on:
-  # push:
-  #   branches:
-  #     - master
+  push:
+    branches:
+      - master
   workflow_dispatch:
     inputs:
       release:
@@ -15,9 +15,13 @@ jobs:
   first:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'hello'
+      - run: echo 'foo'
+      - name: bar
+        if: ${{ inputs.release }}
+        run: echo 'bar'
 
   tag-and-release:
+    needs: [first]
     if:  ${{ inputs.release }}
     runs-on: ubuntu-latest
     steps:
