@@ -15,13 +15,16 @@ jobs:
     #     java: [8, 15]
 
     runs-on: ubuntu-latest
-    services:
-      local-sqs:
-        image: softwaremill/elasticmq-native
-        ports:
-          - 9324:9324
-        # volumes:
-        #   - ${{ github.workspace }}/dev-docker:/opt
+    # services:
+    #   local-sqs:
+    #     image: softwaremill/elasticmq-native
+    #     ports:
+    #       - 9324:9324
+    #     # volumes:
+    #     #   - ${{ github.workspace }}/dev-docker:/opt
+    outputs:
+      fixme:
+        value: ${{ steps.fixme.outputs.version }}
 
     steps:
       - uses: actions/checkout@v3
@@ -37,10 +40,13 @@ jobs:
       - uses: DeLaGuardo/setup-clojure@master
         with:
           cli: latest
+      - run: clojure -T:build update-documents
+        id: fixme
+
 
         #(cd dev-docker && docker compose up -d)
-      - run: |
-         clojure -M:dev:test
+      # - run: |
+      #    clojure -M:dev:test
       # - name: Use Node.js
       #   uses: actions/setup-node@v2
       #   with:
@@ -81,6 +87,14 @@ jobs:
       #     path: ~/.m2
       #     key: test-m2-${{ hashFiles('deps.edn') }}-v1
       # - run: clojure -M:run
+
+
+  next-job:
+    needs: [linux-amd64, darwin-amd64]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "hello [${{ jobs.build.outputs.version }}]"
 
   # gh-page-test:
   #   runs-on: ubuntu-latest

@@ -6,6 +6,8 @@
     [foo.core :as sut]
     [gluttony.core :as gluttony]))
 
+(t/use-fixtures)
+
 (t/deftest bar-test
   (t/is (= 2 (sut/bar 1))))
 ;; {:region #keyword #or [#env AWS_REGION "ap-northeast-2"]
@@ -21,6 +23,12 @@
                                    :hostname "localhost"
                                    :port 9324
                                    :path ""}}))
+
+(comment
+  (let [client (get-client)]
+    (aws/invoke client {:op :CreateQueue :request {:QueueName queue-name
+                                                   :Attribute {:FifoQueue true}}})))
+    ;; (aws/invoke client {:op :GetQueueUrl :request {:QueueName queue-name}})))
 
 
 (t/deftest local-sqs-test

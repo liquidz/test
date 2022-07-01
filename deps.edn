@@ -12,5 +12,5 @@
   :test {:main-opts ["-m" "kaocha.runner"]}
 
   :build
-  {:deps {com.github.liquidz/build.edn {:local/root "../build.edn"} #_{:git/sha "25c904055c556779c61670d7b821ca6527f6307c"}}
+  {:deps {com.github.liquidz/build.edn {:git/tag "0.5.116" :git/sha "f633fa3"}}
    :ns-default build-edn.main}}}
