@@ -23,8 +23,7 @@ jobs:
     #     # volumes:
     #     #   - ${{ github.workspace }}/dev-docker:/opt
     outputs:
-      fixme:
-        value: ${{ steps.fixme.outputs.version }}
+      fixme: ${{ steps.fixme.outputs.version }}
 
     steps:
       - uses: actions/checkout@v3
@@ -90,11 +89,12 @@ jobs:
 
 
   next-job:
-    needs: [linux-amd64, darwin-amd64]
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo "hello [${{ jobs.build.outputs.version }}]"
+      - run: echo "hello [${{ needs.build.outputs.fixme }}]"
+
 
   # gh-page-test:
   #   runs-on: ubuntu-latest
