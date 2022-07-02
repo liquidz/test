@@ -1,9 +1,9 @@
 name: Tag and Release
 
 on:
-  push:
-    branches:
-      - master
+  # push:
+  #   branches:
+  #     - master
   workflow_dispatch:
     inputs:
       release:

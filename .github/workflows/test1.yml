@@ -29,19 +29,26 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - run: git rev-parse HEAD
+      - run: |
+          bash foo.sh
+          git diff
+          git config --global user.email "github-actions@example.com"
+          git config --global user.name "github-actions"
+          git add -A
+          git commit -m "wip [skip ci]" || exit 0
+          git push
 
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-      - uses: DeLaGuardo/setup-clojure@master
-        with:
-          cli: latest
-      - run: clojure -T:build update-documents
-        id: fixme
+      #- uses: actions/setup-java@v3
+      #  with:
+      #    distribution: 'adopt'
+      #    java-version: '11'
+      #- uses: DeLaGuardo/setup-clojure@master
+      #  with:
+      #    cli: latest
+      #- run: clojure -T:build update-documents
+      #  id: fixme
 
-
-        #(cd dev-docker && docker compose up -d)
       # - run: |
       #    clojure -M:dev:test
       # - name: Use Node.js
@@ -90,14 +97,15 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'foo'
-
-  next-next-job:
-    needs: [build, next-job]
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v3
-      - run: echo "hello [${{ needs.build.outputs.fixme }}]"
+      - run: git rev-parse HEAD
+
+  # next-next-job:
+  #   needs: [build, next-job]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - run: echo "hello [${{ needs.build.outputs.fixme }}]"
 
   # gh-page-test:
   #   runs-on: ubuntu-latest
