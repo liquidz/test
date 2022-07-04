@@ -23,9 +23,9 @@ jobs:
           bash foo.sh
           git commit -a -m "test [skip ci]"
           git push origin master
-          git fetch origin dummy
-          git switch dummy
+          git fetch origin dummy2
+          git switch dummy2
           git rebase master
           bash foo.sh
           git commit -a -m "after test [skip ci]"
-          git push origin dummy
+          git push origin dummy2
