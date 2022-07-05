@@ -2,7 +2,7 @@ name: test1
 on:
   pull_request:
     branches:
-      - 'master'
+      - master
     types:
       - closed
 
