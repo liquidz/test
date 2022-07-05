@@ -1,25 +1,14 @@
 name: test1
-on: push
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: master
-      - run: |
-          git config user.email "liquidz.uo@gmail.com"
-          git config user.name ${{ github.actor }}
-          git restore .
-          bash foo.sh
-          git commit -a -m "test [skip ci]"
-          git push origin master
-          git log -1 --format='%H'
-          git fetch origin dummy2
-          git switch dummy2
-          git log -1 --format='%H'
-          git rebase master
-          bash foo.sh
-          git commit -a -m "after test [skip ci]"
-          git push origin dummy2
+      - run: echo 'OK'
