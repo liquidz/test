@@ -1,14 +1,14 @@
 name: test1
 on:
-  pull_request:
-    branches:
-      - master
-    types: [closed]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Please input any text for confirmation'
+        required: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
     steps:
       - uses: actions/checkout@v3
       - run: echo 'OK?'
