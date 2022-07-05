@@ -1,8 +1,8 @@
 name: test1
 on:
   pull_request:
-    branches:
-      - master
+    #branches:
+    #  - master
     types:
       - closed
 
