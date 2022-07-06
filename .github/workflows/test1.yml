@@ -6,9 +6,10 @@ on:
     types: [closed]
   workflow_dispatch:
     inputs:
-      name:
-        description: 'Please input any text for confirmation'
+      release:
+        description: 'True to release'
         required: true
+        type: boolean
 
 jobs:
   build:
