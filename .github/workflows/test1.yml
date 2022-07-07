@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       release:
-        description: '日本語'
+        description: 'これは *日本語* ?'
         required: true
         type: boolean
 
