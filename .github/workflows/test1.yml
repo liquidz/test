@@ -17,4 +17,4 @@ jobs:
     if: ${{ github.event.pull_request.merged == true || inputs.release }}
     steps:
       - uses: actions/checkout@v3
-      - run: echo 'OK?'
+      - run: echo 'OK????'
