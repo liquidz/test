@@ -1,8 +1,5 @@
 name: test1
-on:
-  pull_request:
-    branches:
-      - master
+on: pull_request
         #  types: [closed]
   # workflow_dispatch:
   #   inputs:
