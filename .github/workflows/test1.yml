@@ -4,17 +4,17 @@ on:
     branches:
       - master
     types: [closed]
-  workflow_dispatch:
-    inputs:
-      release:
-        description: 'これは *日本語* ?'
-        required: true
-        type: boolean
+  # workflow_dispatch:
+  #   inputs:
+  #     release:
+  #       description: 'これは *日本語* ?'
+  #       required: true
+  #       type: boolean
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.merged == true || inputs.release }}
+    #if: ${{ github.event.pull_request.merged == true || inputs.release }}
     steps:
       - uses: actions/checkout@v3
       - run: echo 'OK????'
