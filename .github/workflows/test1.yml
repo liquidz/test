@@ -13,6 +13,8 @@ jobs:
       - run: echo "answer = ${{ env.neko }}"
       - id: foo
         run: echo "oni=wani" >> $GITHUB_OUTPUT
+      - id: bar
+        run: echo "wani" >> $GITHUB_OUTPUT
 
   next:
     needs: [build]
