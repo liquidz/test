@@ -8,4 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "hello=world" >> $GITHUB_ENV
-      - run: echo "answer = ${{ env.hello }}"
+      - run: echo "wani" >> $GITHUB_ENV
+      - run: echo "oni" >> $GITHUB_ENV
+      - run: echo "neko=inu" >> $GITHUB_ENV
+      - run: echo "answer = ${{ env.neko }}"
