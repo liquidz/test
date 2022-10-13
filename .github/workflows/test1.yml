@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "hello=world" >> $GITHUB_ENV
-      - run: echo "answer: ${{ env.hello }}"
+
   next:
     runs-on: ubuntu-latest
     steps:
