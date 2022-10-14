@@ -1,3 +1,3 @@
 #!/bin/bash
 
-date >> README.md
+echo "oni2=wani2" >> ${1}
