@@ -18,10 +18,11 @@ jobs:
           cli: latest
 
       - run: echo "$GITHUB_OUTPUT"
-      - id: coverage
-        run: make test
+      # - id: coverage
+      #   run: make test
+      - run: make test
 
-      - run: echo "Coverage\n- Forms = ${{ steps.coverage.outputs.forms }}\n- Lines = ${{ steps.coverage.outputs.lines }}"
+        #- run: echo "Coverage\n- Forms = ${{ steps.coverage.outputs.forms }}\n- Lines = ${{ steps.coverage.outputs.lines }}"
 
       # - id: foo
       #   run: sh foo.sh $GITHUB_OUTPUT
