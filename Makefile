@@ -7,6 +7,10 @@ shadow-test:
 	npx shadow-cljs compile ci
 	./node_modules/karma/bin/karma start --single-run
 
+.PHONY: test
+test:
+	clojure -M:dev:test
+
 .PHONY: clean
 clean:
 	rm -rf .cpcache target

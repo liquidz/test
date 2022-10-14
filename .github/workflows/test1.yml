@@ -8,13 +8,12 @@ jobs:
       foo: ${{ steps.foo.outputs.oni }}
     steps:
       - uses: actions/checkout@v3
+      - run: echo "$GITHUB_ENV"
       - run: echo "hello=world" >> $GITHUB_ENV
       - run: echo "neko=inu" >> $GITHUB_ENV
       - run: echo "answer = ${{ env.neko }}"
       - id: foo
         run: echo "oni=wani" >> $GITHUB_OUTPUT
-      - id: bar
-        run: echo "wani" >> $GITHUB_OUTPUT
 
   next:
     needs: [build]
