@@ -9,7 +9,7 @@ shadow-test:
 
 .PHONY: test
 test:
-	clojure -M:dev:test
+	HOGE=FUGA clojure -M:dev:test
 
 .PHONY: clean
 clean:
