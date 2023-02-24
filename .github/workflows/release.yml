@@ -50,16 +50,6 @@ jobs:
           git commit -m "Update for release" || exit 0
           git push
 
-      - uses: liquidz/create-release@4233b11e91ec0d1aa8d5dca9ebd7fe3ceb12d696
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.tag.outputs.version }}
-          release_name: ${{ steps.tag.outputs.version }}
-          body: released
-          draft: false
-          prerelease: false
-
       - uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag.outputs.version }}
