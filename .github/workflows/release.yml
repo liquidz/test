@@ -11,27 +11,6 @@ on:
         required: true
         type: boolean
 
-# jobs:
-#   first:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#         with:
-#           ref: master
-#       - run: |
-#           git config user.email "liquidz.uo@gmail.com"
-#           git config user.name ${{ github.actor }}
-#           git restore .
-#           bash foo.sh
-#           git commit -a -m "test [skip ci]"
-#           git push origin master
-#           git fetch origin dummy2
-#           git switch dummy2
-#           git rebase master
-#           bash foo.sh
-#           git commit -a -m "after test [skip ci]"
-#           git push origin dummy2
-#
 jobs:
   tag-and-release:
     runs-on: ubuntu-latest
@@ -80,3 +59,9 @@ jobs:
           body: released
           draft: false
           prerelease: false
+
+      - uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag.outputs.version }}
+          skipIfReleaseExists: true
+          generateReleaseNotes: true
