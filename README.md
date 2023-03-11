@@ -1,6 +1,6 @@
 # test repo
 
-# $\text{vim-iced}^3$
+# $\bf \text{vim-iced}^3$
 
  * foo
  * neko
