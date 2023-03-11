@@ -1,6 +1,6 @@
 # test repo
 
-$hello^3$
+# $hello^3$
 
  * foo
  * neko
